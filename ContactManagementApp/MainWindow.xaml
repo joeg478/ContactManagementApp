@@ -1,0 +1,13 @@
+﻿<Window x:Class="ContactManagementApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ContactManagementApp"
+        xmlns:views="clr-namespace:ContactManagementApp.Views"
+        mc:Ignorable="d"
+        Title="Contact Management" Height="500" Width="500" MaxWidth="800" SizeToContent="WidthAndHeight" ScrollViewer.CanContentScroll="True">
+    <Grid>
+        <views:ContactsView></views:ContactsView>
+    </Grid>
+</Window>

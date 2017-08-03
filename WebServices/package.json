@@ -1,0 +1,14 @@
+{
+  "name": "web-services",
+  "version": "0.0.0",
+  "description": "WebServices",
+  "main": "server.js",
+  "author": {
+    "name": "April"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mongodb": "^2.2.30"
+  }
+}
