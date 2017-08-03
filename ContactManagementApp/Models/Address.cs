@@ -22,8 +22,9 @@ namespace ContactManagementApp.Models
         {
             var address = new StringBuilder();
             address.AppendLine(Line1);
+            if (!string.IsNullOrEmpty(Line2))
             address.AppendLine(Line2);
-            address.AppendFormat("{0}, {1} {2}", City, State, ZipCode);
+                address.AppendFormat("{0}, {1} {2}", City, State, ZipCode);
             return address.ToString();
         }
     }

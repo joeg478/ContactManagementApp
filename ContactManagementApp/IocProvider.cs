@@ -22,7 +22,7 @@ namespace ContactManagementApp
             if (Container == null)
             {
                 var builder = new ContainerBuilder();
-                //builder.RegisterType<MocWebServices>().As<IWebServices>();
+                //builder.RegisterType<MocContactWebServices>().As<IContactWebServices>();
                 builder.RegisterType<NodeJsContactWebServices>().As<IContactWebServices>();
                 Container = builder.Build();
             }

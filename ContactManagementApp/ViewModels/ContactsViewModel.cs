@@ -92,7 +92,7 @@ namespace ContactManagementApp.ViewModel
             get { return _contacts; }
             set
             {
-                _contacts = value;
+                _contacts = new List<Contact>(value);
                 NotifyPropertyChanged("Contacts");
             }
         }

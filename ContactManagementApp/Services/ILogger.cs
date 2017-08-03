@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ContactManagementApp.Services
 {
-    //TODO: Implement additional methods for more grainular logging
+    //TODO: Implement additional methods for more grainular logging and log level configuration
     //TODO: Use DI framework to easily switch between logging frameworks
     //TODO: Support different types of logs (web service, VM, model, repository, etc)
     interface ILogger

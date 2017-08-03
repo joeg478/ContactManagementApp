@@ -10,6 +10,11 @@ namespace ContactManagementApp.Models
     {
         public static event EventHandler ContactChanged;
 
+        public Contact()
+        {
+            Address = new Address();
+        }
+
         public string _id { get; set; }
 
         public string Name { get; set; }

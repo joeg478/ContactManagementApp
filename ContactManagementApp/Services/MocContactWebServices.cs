@@ -21,7 +21,7 @@ namespace ContactManagementApp.Services
             _mockServices.Setup(w => w.Create(It.IsAny<Contact>())).Callback<Contact>((contact) => { CreateCallback(contact); });
             _mockServices.Setup(w => w.Delete(It.IsAny<string>())).Callback<string>((id) => { DeleteCallback(id); });
             _mockServices.Setup(w => w.FindById(It.IsAny<string>())).Returns((string id) => _contacts.FirstOrDefault(c => c._id == id));
-            _mockServices.Setup(w => w.FindByName(It.IsAny<string>())).Returns((string name) => _contacts.Where(c => c.Name.Contains(name)));
+            _mockServices.Setup(w => w.FindByName(It.IsAny<string>())).Returns((string name) => _contacts.Where(c => c.Name != null && name != null && c.Name.ToLower().Contains(name.ToLower())));
             _mockServices.Setup(w => w.GetContacts()).Returns(() => _contacts);
             _mockServices.Setup(w => w.Update(It.IsAny<Contact>())).Callback<Contact>((contact) => { UpdateCallback(contact); });
             InitializeList();
@@ -38,6 +38,7 @@ namespace ContactManagementApp.Services
         {
             contact._id = Guid.NewGuid().ToString();
             _contacts.Add(contact);
+            ContactsChanged(this, EventArgs.Empty);
         }
 
         private void UpdateCallback(Contact update)
