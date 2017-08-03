@@ -9,23 +9,23 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <StackPanel Margin="2">
-            <Label FontSize="14" FontWeight="Bold">Contacts</Label>
-            <StackPanel Orientation="Horizontal">
-                <Label Margin="0 0 2 0">Search by name</Label>
-                <TextBox Margin="0 0 2 0" MinWidth="100" Text="{Binding SearchText}"></TextBox>
-                <Button Margin="0 0 2 0" Command="{Binding SearchCommand}">Search</Button>
-                <Button Command="{Binding ClearSearchCommand}">Clear</Button>
-            </StackPanel>
+        <Label FontSize="14" FontWeight="Bold">Contacts</Label>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal">
+            <Label Margin="0 0 2 0">Search by name</Label>
+            <TextBox Margin="0 0 2 0" MinWidth="100" Text="{Binding SearchText}"></TextBox>
+            <Button Margin="0 0 2 0" Command="{Binding SearchCommand}">Search</Button>
+            <Button Command="{Binding ClearSearchCommand}">Clear</Button>
         </StackPanel>
-        <DataGrid SelectedItem="{Binding SelectedContact}" VerticalAlignment="Top" Grid.Row="1" Grid.ColumnSpan="2" Name="contactsGrid" ItemsSource="{Binding Contacts}" AutoGenerateColumns="False" IsReadOnly="True">
+        <Button Grid.Row="1" Grid.Column="2" Command="{Binding CreateNewCommand}">Create New</Button>
+        <DataGrid SelectedItem="{Binding SelectedContact}" VerticalAlignment="Top" Grid.Row="2" Grid.ColumnSpan="3"  Margin="3 3 0 3" Name="contactsGrid" ItemsSource="{Binding Contacts}" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
@@ -40,7 +40,6 @@
                 <DataGridTextColumn Width="*" Header="Phone Numbers" Binding="{Binding PhoneNumber}" />
                 <DataGridTextColumn Width="*" Header="Email Addresses" Binding="{Binding EmailAddress}" />
             </DataGrid.Columns>
-            </DataGrid>
-        <Button Grid.Row="2" Margin="0 5 0 0" Command="{Binding CreateNewCommand}">Create New</Button>
+        </DataGrid>
     </Grid>
 </UserControl>
