@@ -29,9 +29,9 @@ namespace ContactManagementApp.Services
 
         private void InitializeList()
         {
-            _contacts.Add(new Contact() { Name = "Person One" });
-            _contacts.Add(new Contact() { Name = "Person Two" });
-            _contacts.Add(new Contact() { Name = "Person Three" });
+            _contacts.Add(new Contact() { Name = "Person One", _id = "1" });
+            _contacts.Add(new Contact() { Name = "Person Two", _id = "2" });
+            _contacts.Add(new Contact() { Name = "Person Three", _id = "3" });
         }
 
         private void CreateCallback(Contact contact)
@@ -51,6 +51,7 @@ namespace ContactManagementApp.Services
                 contact.PhoneNumber = update.PhoneNumber;
                 contact.EmailAddress = update.EmailAddress;
             }
+            ContactsChanged(this, EventArgs.Empty);
         }
 
         private void DeleteCallback(string id)

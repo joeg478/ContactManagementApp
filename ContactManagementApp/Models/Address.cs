@@ -24,7 +24,10 @@ namespace ContactManagementApp.Models
             address.AppendLine(Line1);
             if (!string.IsNullOrEmpty(Line2))
             address.AppendLine(Line2);
+            if (!string.IsNullOrEmpty(City))
                 address.AppendFormat("{0}, {1} {2}", City, State, ZipCode);
+            else
+                address.AppendFormat("{0} {1}", State, ZipCode);
             return address.ToString();
         }
     }
